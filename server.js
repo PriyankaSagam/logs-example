@@ -54,8 +54,22 @@ app.get('/logs',async (req, res) => {
 //New-route
 app.get('/new', (req, res) => {
     // res.send("<h1>New Page</h1>")
-    res.render('New')
+     res.render('New')
 });
+
+// D - DELETE - PERMANENTLY removes a fruit from the db
+app.delete('/logs/:id', async (req, res)=> {
+    // res.send('deleting...');
+    try{
+        const deletedLogs = await Logs.findByIdAndDelete(req.params.id);
+        console.log(deletedLogs)
+        res.status(200).redirect('/logs');
+    } catch (err) {
+        res.status(400).send(err);
+    }
+
+})
+
 
 
 //Create-
@@ -69,7 +83,7 @@ app.post('/logs',async (req, res) => {
     
     try {
         const createdLogs = await Logs.create(req.body);
-        res.status(200).redirect('/show');
+        res.status(200).redirect('/logs');
     } catch (err) {
         res.status(400).send(err);
     }
@@ -78,6 +92,8 @@ app.post('/logs',async (req, res) => {
     //  res.send(req.body);
 
 });
+
+
    
 //Show--
 
