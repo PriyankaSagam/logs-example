@@ -70,6 +70,25 @@ app.delete('/logs/:id', async (req, res)=> {
 
 })
 
+//U - UPDATE - makes the actual changes to the database
+app.put('/logs/:id', async (req, res) => {
+    if (req.body.shipIsBroken === 'on') {
+        req.body.shipIsBroken = true;
+    } else {
+        req.body.shipIsBroken = false;
+    }
+
+    try {
+        const updatedLogs = await Logs.findByIdAndUpdate(
+            req.params.id,
+            req.body,
+            { new: true },
+        )
+        console.log(updatedLogs);
+        res.status(200).redirect(`/logs/${req.params.id}`);
+    } catch (err) {
+    res.status(400).send(err)
+}})
 
 
 //Create-
