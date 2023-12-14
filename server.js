@@ -81,11 +81,11 @@ app.post('/logs',async (req, res) => {
    
 //Show--
 
-app.get('/show',async (req, res) => {
+app.get('/logs/:id',async (req, res) => {
     //  res.send("<h1>Show Page</h1>")
     try {
-        const foundLogs = await Logs()
-        res.render('Show', {logs: foundLogs});
+        const foundLog = await Logs.findById(req.params.id);
+        res.render('Show', {log: foundLog});
     } catch (err) {
         res.status(400).send(err);
     }
