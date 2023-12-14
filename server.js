@@ -93,6 +93,17 @@ app.post('/logs',async (req, res) => {
 
 });
 
+// E - EDIT - allow the user to provide the inputs to change the fruit
+app.get('/logs/:id/edit', async (req, res) => {
+    try {
+        const foundLog = await Logs.findById(req.params.id);
+        console.log('foundLog');
+        console.log(foundLog)
+        res.status(200).render('Edit', {log: foundLog});
+    } catch (err) {
+        res.status(400).send(err);
+    }
+})
 
    
 //Show--
