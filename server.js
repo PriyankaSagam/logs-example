@@ -38,6 +38,19 @@ app.get('/', (req, res) => {
     res.send("<h1>Hello</h1>")
 })
 
+//Index--
+
+app.get('/logs',async (req, res) => {
+    // res.send("<h1>Index Page</h1>")
+    //  res.render('Index');
+    try {
+        const foundLogs = await Logs.find({});
+        res.status(200).render('Index', {logs: foundLogs});
+    } catch (err) {
+        res.status(400).send(err);
+    }
+})
+
 //New-route
 app.get('/new', (req, res) => {
     // res.send("<h1>New Page</h1>")
@@ -65,11 +78,13 @@ app.post('/logs',async (req, res) => {
     //  res.send(req.body);
 
 });
-    
+   
+//Show--
+
 app.get('/show',async (req, res) => {
     //  res.send("<h1>Show Page</h1>")
     try {
-        const foundLogs = await Logs.findById(req.params.id);
+        const foundLogs = await Logs()
         res.render('Show', {logs: foundLogs});
     } catch (err) {
         res.status(400).send(err);

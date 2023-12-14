@@ -6,6 +6,7 @@ class Show extends React.Component {
     return (
         <div>
             <h1>Show Page</h1>
+            <br/>
             <p>  The {Logs.title}is {Logs.entry}</p>
             {Logs.shipIsBroken ? 'Ship is Broken':"Ship is not broken"}
         </div>
