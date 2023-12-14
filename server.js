@@ -42,9 +42,26 @@ app.get('/', (req, res) => {
 app.get('/new', (req, res) => {
     // res.send("<h1>New Page</h1>")
     res.render('New')
-})
+});
+
+
+//Create-
+
+app.post('/logs', (req, res) => {
+    if(req.body.shipIsBroken === 'on') { //if checked, req.body.readyToEat is set to 'on'
+        req.body.shipIsBroken = true;
+    } else {  //if not checked, req.body.readyToEat is undefined
+        req.body.shipIsBroken = false;
+    }
+    console.log(req.body);
+    // res.send('data received');
+     res.send(req.body);
+
+});
+    
+
 
 
 app.listen(3000, () => {
     console.log('listening');
-})
+});
