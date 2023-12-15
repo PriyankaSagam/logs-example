@@ -38,7 +38,10 @@ app.use(methodOverride('_method'));
 
 
 app.get('/', (req, res) => {
-    res.send("<h1>Hello</h1>")
+    // res.render('New');
+    res.send(`<a href = ${'/logs'} > Go to Index Page</a> <br/>`)
+    
+
 })
 
 //Index--

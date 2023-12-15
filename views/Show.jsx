@@ -5,10 +5,11 @@ class Show extends React.Component {
     return (
         <div>
             <h1>Show Page</h1>
-            
+            <a href = {'/logs'} > Go to Index Page</a> <br/>
             <h2>Title:{log.title}</h2> 
             <h2>Entry:{log.entry}</h2>
-            {log.shipIsBroken ? 'Ship is Broken':"Ship is not broken"}
+            {log.shipIsBroken ? 'Ship is Broken' : "Ship is not broken"}
+
         </div>
     );
     }
