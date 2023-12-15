@@ -8,6 +8,8 @@ const app = express();
 const Logs = require('./models/logs');
 const jsxViewEngine = require('jsx-view-engine');
 
+const PORT=process.env.PORT ||3000
+
 //global configuration
 const mongoURI = process.env.MONGO_URI;
 const db = mongoose.connection;
@@ -32,6 +34,7 @@ app.use((req, res, next) => {
 app.use(express.urlencoded({extended:false}));
 
 app.use(methodOverride('_method'));
+
 
 
 app.get('/', (req, res) => {
@@ -140,6 +143,6 @@ app.get('/logs/:id',async (req, res) => {
 
 
 
-app.listen(3000, () => {
-    console.log('listening');
+app.listen(PORT, () => {
+    console.log(`server started on port ${PORT}`);
 });

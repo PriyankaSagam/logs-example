@@ -1,27 +1,27 @@
 # logs-example
 # Set up
 
-mkdir captains_log
-cd catpains_log
-create a new express app
-npm init -y
-npm i express
-code .
-basic app code in server.js 
-nodemon
-mkdir models
-cd models
-touch logs.js
-cd ..
-mkdir views
-cd views
-touch Edit.jsx Index.jsx New.jsx Show.jsx
-cd ..
-touch .gitignore
-touch .env
-in .gitignore => .env and node_modules
-npm i jsx-view-engine react react-dom --save
-npm i dotenv
+mkdir captains_log,
+cd catpains_log,
+create a new express app,
+npm init -y,
+npm i express,
+code . ,
+basic app code in server.js ,
+nodemon,
+mkdir models,
+cd models,
+touch logs.js,
+cd ..  ,
+mkdir views,
+cd views,
+touch Edit.jsx Index.jsx New.jsx Show.jsx,
+cd ..  ,
+touch .gitignore,
+touch .env,
+in .gitignore => .env and node_modules,
+npm i jsx-view-engine react react-dom --save,
+npm i dotenv,
 npm i method-override
 
 # New
@@ -107,3 +107,13 @@ upgrade yourEdit.jsxform to have the appropriate action and method
 create your PUT route
 First, just have it res.sendthe updated log and check it is as expected
 change the res.sendto a res.redirectto your index page
+
+# Router
+mkdir controllers
+touch controllers/logs.js
+work on refactoring your code so your logs routes are in your controller file, rather than in server.js
+
+
+# models/fruit.js- handles the getting the database connection and defining the fruit model (share of data)
+# views/fruits/- this folder contains all our views/templates for our fruits
+# controllers/fruit.js- creates all our routes which pull data from the model and sends them over to the templates
